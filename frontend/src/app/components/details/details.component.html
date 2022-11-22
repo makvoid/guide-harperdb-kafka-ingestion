@@ -1,0 +1,63 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<ng-container *ngIf="!loading">
+  <div class="flex h-screen items-center">
+    <div class="mx-auto" *ngIf="order">
+      <h1 class="text-5xl font-bold text-center">Acme Co Order Status</h1>
+      <div class="mt-3 stats shadow">
+        <div class="stat">
+          <div class="stat-title">Order Placed</div>
+          <div class="stat-value">{{ order.orderDate }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">Est. Delivery Date</div>
+          <div class="stat-value">{{ order.deliveryDate }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">Order Total</div>
+          <div class="stat-value">{{ order.total }}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-title">Reward Points</div>
+          <div class="stat-value">{{ order.rewardPoints}}</div>
+        </div>
+      </div>
+      <div>
+        <div class="overflow-x-auto">
+          <!-- Information -->
+          <table class="mt-3 table w-full">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ order.name }}</td>
+                <td>{{ order.email }}</td>
+                <td>{{ order.number }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Tracking -->
+          <table class="table w-full">
+            <thead>
+              <tr>
+                <th>Tracking Carrier</th>
+                <th>Tracking #</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ order.tracking.carrier }}</td>
+                <td>{{ order.tracking.number }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
